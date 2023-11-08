@@ -1,5 +1,8 @@
-package de.telran.homeWork.module_1.hw1.module1.lecture1.module1.lecture1;
+package de.telran.homeWork.hw_1;
 
+
+import de.telran.homeWork.hw_1.module1.lecture1.module1.lecture1.Person;
+import de.telran.homeWork.hw_1.module1.lecture1.module1.lecture1.Phone;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,7 +35,7 @@ module1.lecture1.module1.lecture1.Person(), другой - module1.lecture1.modu
 
 
         for (Phone phone : new Phone[]{iphone, samsung, motorola}) {
-            System.out.println("number: " + phone.number);
+            System.out.println("number: " + phone.getNumber());
             System.out.println("model: " + phone.model);
             System.out.println("weight: " + phone.weight + " грамм\n");
         }

@@ -1,8 +1,8 @@
-package de.telran.homeWork.module_1.hw1.module1.lecture1.module1.lecture1;
+package de.telran.homeWork.hw_1.module1.lecture1.module1.lecture1;
 
 public class Person {
-    String fullName;
-    int age;
+    public String fullName;
+    public int age;
 
     public Person(String fullName, int age) {
         this.fullName = fullName;
@@ -12,12 +12,12 @@ public class Person {
     public Person() {
     }
 
-    void move() {
+    public void move() {
         System.out.println(fullName + " двигается");
     }
 
 
-    void talk() {
+    public void talk() {
         System.out.println(fullName + " говорит");
     }
 }
