@@ -6,6 +6,8 @@ import de.telran.homeWork.hw_3.pizzeria.interfaces.Cook;
 import de.telran.homeWork.hw_3.pizzeria.interfaces.Waiter;
 
 public class Pizzeria implements Cashier, Cleaner, Cook, Waiter {
+
+
     @Override
     public void acceptOrder() {
 
