@@ -14,8 +14,5 @@ public class pizzaApp {
         pizzaCalc.getCalories(5, 6);
         pizzaCalc.getCalories(5, 6, 7);
 
-
-
-
     }
 }
