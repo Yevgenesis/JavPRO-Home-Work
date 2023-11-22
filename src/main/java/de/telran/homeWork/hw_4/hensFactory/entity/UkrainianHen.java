@@ -10,6 +10,7 @@ class UkrainianHen extends Hen {
 
     @Override
     int getCountOfEggsPerMonth() {
+        // Тут должен быть расчёт яиц
         return 25;
     }
 }

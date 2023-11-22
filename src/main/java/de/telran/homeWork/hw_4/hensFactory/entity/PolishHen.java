@@ -1,7 +1,7 @@
 package de.telran.homeWork.hw_4.hensFactory.entity;
 
-class RussianHen extends Hen {
-    private String country = "Россия";
+class PolishHen extends Hen {
+    private String country = "Польша";
 
     @Override
     public String getDescription() {
@@ -10,6 +10,7 @@ class RussianHen extends Hen {
 
     @Override
     int getCountOfEggsPerMonth() {
+        // Тут должен быть расчёт яиц
         return 22;
     }
 }

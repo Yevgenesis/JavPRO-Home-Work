@@ -3,7 +3,6 @@ package de.telran.homeWork.hw_4.warehouse;
 import de.telran.homeWork.hw_4.warehouse.interfaces.Collector;
 import de.telran.homeWork.hw_4.warehouse.interfaces.Loader;
 import de.telran.homeWork.hw_4.warehouse.interfaces.Storekeeper;
-import de.telran.homeWork.hw_4.warehouse.interfaces.Warehouse;
 
 /*
 Вы работаете на складе.
@@ -18,9 +17,16 @@ public class WarehouseApp {
     public static void main(String[] args) {
         Warehouse warehouse = new Warehouse();
 
-        Collector collector = warehouse;
-        Loader loader = warehouse;
-        Storekeeper storekeeper = warehouse;
+        ((Collector) warehouse).placesGoods();
+        ((Collector) warehouse).collectsGoods();
 
+        ((Loader) warehouse).loadGoods();
+        ((Loader) warehouse).unloadsGoods();
+
+        ((Storekeeper) warehouse).createTaskForPickingGoods();
+        ((Storekeeper) warehouse).createTaskForPlacingGoods();
+        ((Storekeeper) warehouse).determinePlaceForGoods();
+        ((Storekeeper) warehouse).receiveGoods();
+        ((Storekeeper) warehouse).releaseGoods();
     }
 }

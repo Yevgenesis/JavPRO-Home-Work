@@ -1,5 +1,6 @@
 package de.telran.homeWork.hw_4.hensFactory;
 
+import de.telran.homeWork.hw_4.hensFactory.entity.Country;
 import de.telran.homeWork.hw_4.hensFactory.entity.Hen;
 import de.telran.homeWork.hw_4.hensFactory.entity.HenFactory;
 
@@ -25,14 +26,16 @@ import de.telran.homeWork.hw_4.hensFactory.entity.HenFactory;
 */
 public class DemoApp {
     public static void main(String[] args) {
-        Hen ukrHen = HenFactory.getHen("ukraine");
-        Hen belHen = HenFactory.getHen("belarus");
-        Hen rusHen = HenFactory.getHen("russia");
-        Hen moldHen = HenFactory.getHen("moldova");
+
+
+        Hen ukrHen = HenFactory.getHen(Country.UKRAINE);
+        Hen belHen = HenFactory.getHen(Country.BELARUS);
+        Hen polHen = HenFactory.getHen(Country.POLAND);
+        Hen moldHen = HenFactory.getHen(Country.MOLDOVA);
 
         System.out.println(ukrHen.getDescription());
         System.out.println(belHen.getDescription());
-        System.out.println(rusHen.getDescription());
+        System.out.println(polHen.getDescription());
         System.out.println(moldHen.getDescription());
     }
 }
