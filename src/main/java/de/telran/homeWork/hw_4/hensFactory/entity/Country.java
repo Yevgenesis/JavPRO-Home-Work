@@ -5,6 +5,4 @@ public enum Country {
     UKRAINE,
     BELARUS,
     POLAND
-
-
 }

@@ -8,13 +8,11 @@ public class Warehouse implements Collector, Loader, Storekeeper {
     @Override
     public void collectsGoods() {
         System.out.println("Собрал товар на складе");
-
     }
 
     @Override
     public void placesGoods() {
         System.out.println("Разместил товар на складе");
-
     }
 
     @Override
