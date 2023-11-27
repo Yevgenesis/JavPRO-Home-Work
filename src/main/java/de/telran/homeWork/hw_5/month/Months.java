@@ -1,4 +1,4 @@
-package de.telran.homeWork.hw_5.monthsTips;
+package de.telran.homeWork.hw_5.month;
 
 public enum Months {
     DECEMBER("Декабрь"),
