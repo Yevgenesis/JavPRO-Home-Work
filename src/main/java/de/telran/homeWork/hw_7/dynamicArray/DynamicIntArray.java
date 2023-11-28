@@ -7,14 +7,14 @@ public class DynamicIntArray {
     private final int DEFAULT_CAPACITY = 5;
     int length;
     private int capacity = DEFAULT_CAPACITY;
-    private int[][] arr = {new int[capacity]};
+    private int[] arr = new int[capacity];
 
     public DynamicIntArray() {
     }
 
     public DynamicIntArray(int capacity) {
         this.capacity = capacity > 0 ? capacity : 1; // защита от значения меньше 1
-        arr[0] = new int[this.capacity];
+        arr = new int[this.capacity];
     }
 
     public void insert(int index, int element) {
@@ -23,10 +23,10 @@ public class DynamicIntArray {
                 increaseCapacity();
 
             for (int i = length; i > index; i--)
-                arr[0][i] = arr[0][i - 1];
+                arr[i] = arr[i - 1];
 
             length++;
-            arr[0][index] = element;
+            arr[index] = element;
         }
     }
 
@@ -34,7 +34,7 @@ public class DynamicIntArray {
         if (capacity == length)
             increaseCapacity();
 
-        arr[0][length] = element;
+        arr[length] = element;
         length++;
     }
 
@@ -46,20 +46,20 @@ public class DynamicIntArray {
         while (length + arrElements.length > capacity)
             increaseCapacity();
         for (int element : arrElements)
-            arr[0][length++] = element;
+            arr[length++] = element;
     }
 
     public int get(int index) {
         if (isNotOutOfRange(index)) {
-            return arr[0][index];
+            return arr[index];
         }
         return 0;
     }
 
     public int delete(int index) {
-        int deletedElement = arr[0][index];
+        int deletedElement = arr[index];
         for (int i = index; i < length - 1; i++)
-            arr[0][i] = arr[0][i + 1];
+            arr[i] = arr[i + 1];
 
         length--;
         return deletedElement; // Возвращает удалённый элемент
@@ -71,9 +71,9 @@ public class DynamicIntArray {
         int[] newArr = new int[capacity];
 
         for (int i = 0; i < length; i++)
-            newArr[i] = arr[0][i];
+            newArr[i] = arr[i];
 
-        arr[0] = newArr;
+        arr = newArr;
     }
 
     private boolean isNotOutOfRange(int index) {
@@ -88,7 +88,7 @@ public class DynamicIntArray {
     @Override
     public String toString() {
         // Печать заполненной части массива (исключая capacity)
-        return Arrays.toString(Arrays.copyOfRange(arr[0], 0, length));
+        return Arrays.toString(Arrays.copyOfRange(arr, 0, length));
     }
 
 }
