@@ -3,8 +3,8 @@ package de.telran.homeWork.hw_7.dynamicArray;
 public class ArrayDemo {
     public static void main(String[] args) {
         DynamicIntArray myArr = new DynamicIntArray(1);
-
         System.out.println(myArr);
+
         myArr.add(2);
         myArr.add(11);
         System.out.println(myArr);
