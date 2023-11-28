@@ -3,13 +3,14 @@ package de.telran.homeWork.hw_7.dynamicArray;
 import java.util.Arrays;
 
 public class DynamicIntArray {
-    int PERCENT_CHANGE = 50; // Процент увеличения массива
-    private final int DEFAULT_CAPACITY = 5;
-    int length;
-    private int capacity = DEFAULT_CAPACITY;
-    private int[] arr = new int[capacity];
+    public int PERCENT_CHANGE = 50; // Процент увеличения массива 50%
+    public int length;
+    private static int DEFAULT_CAPACITY = 5;
+    private int capacity;
+    private int[] arr = new int[DEFAULT_CAPACITY];
 
     public DynamicIntArray() {
+        this.capacity = DEFAULT_CAPACITY;
     }
 
     public DynamicIntArray(int capacity) {
