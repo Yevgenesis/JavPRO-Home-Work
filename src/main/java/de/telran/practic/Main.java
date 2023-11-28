@@ -4,27 +4,13 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[][] array = {
-                {1, 2, 3, 4},
-                {5, 11, 15, 16},
-                {9, 12, 17, 21},
-                {13, 15, 18, 26},
-                {35, 38, 45, 66},
-                {78, 89, 99, 100}};
+       int[][] arr = {{0,1}};
+       int[] ss = {2,3,4,5};
 
-        int n = 18;
-        System.out.println("["+getNum(n, array)+"]");
+        System.out.println(Arrays.toString(arr[0]));
+        arr[0] = ss;
+        System.out.println(Arrays.toString(arr[0]));
 
-    }
-
-    public static int getNum(int n, int[][] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (n <= array[i][array[i].length-1]) {
-                System.out.print("array["+i+"]");
-                return Arrays.binarySearch(array[i], 0, array[i].length - 1, n);
-            }
-        }
-        return -1;
     }
 }
 
