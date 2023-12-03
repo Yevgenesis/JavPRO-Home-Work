@@ -1,19 +1,24 @@
 package de.telran.homeWork.hw_7.seaWar;
 
 import de.telran.homeWork.hw_7.seaWar.entity.Board;
+import de.telran.homeWork.hw_7.seaWar.entity.Game;
+import de.telran.homeWork.hw_7.seaWar.entity.User;
+import de.telran.homeWork.hw_7.seaWar.entity.UserHuman;
 
 public class SeaWarGame {
     public static void main(String[] args) {
-        Board userBoard = new Board();
-        Board coputerBoard = new Board();
+        UserHuman user1 = new UserHuman("Vano");
+        UserHuman user2 = new UserHuman("Liza");
+        Game game = new Game(user1,user2);
 
-        boolean isSettingShip = userBoard.setShip(3,6,4,false);
-        userBoard.showBoard(true);
-        System.out.println(isSettingShip);
 
-        isSettingShip = userBoard.setShip(1,4,4,true);
-        userBoard.showBoard(true);
-        System.out.println(isSettingShip);
+
+        game.showBoards(true);
+//        game.setShips(user1);
+
+//        isSettingShip = userBoard.setShip(2,4,4,false);
+//        userBoard.showBoard(true);
+//        System.out.println(isSettingShip);
 
     }
 }
