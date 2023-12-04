@@ -20,13 +20,6 @@ public class UniDirectionalIntLinkedList{
         size++;
     }
 
-    public UniDirectionalIntLinkedList() {
-    }
-
-    public UniDirectionalIntLinkedList(Node first) {
-        this.first = first;
-        this.size = 1;
-    }
 
     public void add(int index, int element) {
         if (index == 0) {

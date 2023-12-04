@@ -12,15 +12,12 @@ public class UniIterLinkedList extends UniDirectionalIntLinkedList implements It
 
     private Node cursor;
 
-    private UniIterLinkedList(Node first) {
-        super(first);
-    }
 
     public UniIterLinkedList() {
     }
 
     public UniIterLinkedList iterator(){
-        return new UniIterLinkedList(first);
+        return this;
     }
 
 

@@ -13,7 +13,7 @@ public class Board {
     }
 
     public void boardInit() {
-        for (String[] strings : board) Arrays.fill(strings, Color.CYAN + "░░" + Color.RESET);
+        for (String[] strings : board) Arrays.fill(strings, Color.BLUE + "░░" + Color.RESET);
     }
 
 //    public void showBoard(boolean isVisibleShips) {

@@ -7,19 +7,13 @@ import java.util.Iterator;
 public class IterDynamicArray  extends DynamicIntArray implements Iterator {
 
 //  Наследовался от класса DynamicIntArray, имплементировал интерфейс Iterator,
-//  добавил метод Итератор и переопределил методы remove
+//  добавил метод Итератор и переопределил методы
 
     private int cursor = -1;
 
-    private IterDynamicArray(int[] arr, int len) {
-        super(arr, len);
-    }
-
-    public IterDynamicArray() {
-    }
 
     public IterDynamicArray iterator(){
-        return new IterDynamicArray(arr, length);
+        return this;
     }
 
 

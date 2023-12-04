@@ -14,10 +14,6 @@ public class DynamicIntArray {
         this.capacity = DEFAULT_CAPACITY;
     }
 
-    protected DynamicIntArray(int[] arr, int len) {
-        this.arr = arr;
-        length = len;
-    }
 
     public DynamicIntArray(int capacity) {
         this.capacity = capacity > 0 ? capacity : 1; // защита от значения меньше 1

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Game {
     String seaColor = Color.BLUE;
-    String coordsColor = Color.YELLOW;
+    String coordsColor = Color.RED;
     User[] users = new User[2];
     public Board[] boards = {new Board(), new Board()};
 
