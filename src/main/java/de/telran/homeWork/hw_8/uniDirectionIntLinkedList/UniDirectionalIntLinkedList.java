@@ -1,8 +1,10 @@
-package de.telran.homeWork.hw_8.unidirectionIntLinkedList;
+package de.telran.homeWork.hw_8.uniDirectionIntLinkedList;
 
-public class UnidirectionalIntLinkedList {
-    int size;
-    private Node first;
+import java.util.Iterator;
+
+public class UniDirectionalIntLinkedList{
+    protected int size;
+    protected Node first;
 
     public void add(int element) {
         Node temp = new Node(element);
@@ -16,6 +18,14 @@ public class UnidirectionalIntLinkedList {
             currentNode.next = temp;
         }
         size++;
+    }
+
+    public UniDirectionalIntLinkedList() {
+    }
+
+    public UniDirectionalIntLinkedList(Node first) {
+        this.first = first;
+        this.size = 1;
     }
 
     public void add(int index, int element) {
@@ -143,6 +153,7 @@ public class UnidirectionalIntLinkedList {
 
     @Override
     public String toString() {
+        if (first == null) return "[]";
         StringBuilder linkArr = new StringBuilder();
         Node temp = first;
         System.out.print("[");
@@ -153,12 +164,14 @@ public class UnidirectionalIntLinkedList {
         return linkArr.substring(0, linkArr.length() - 2) + "]";
     }
 
-    private class Node {
-        int item;
-        Node next;
+
+    protected class Node {
+        public int item;
+        public Node next;
 
         public Node(int item) {
             this.item = item;
         }
     }
+
 }

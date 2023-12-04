@@ -1,16 +1,22 @@
 package de.telran.homeWork.hw_7.dynamicArray;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class DynamicIntArray {
     public int PERCENT_CHANGE = 50; // Процент увеличения массива 50%
     public int length;
     private static int DEFAULT_CAPACITY = 5;
     private int capacity;
-    private int[] arr = new int[DEFAULT_CAPACITY];
+    protected int[] arr = new int[DEFAULT_CAPACITY];
 
     public DynamicIntArray() {
         this.capacity = DEFAULT_CAPACITY;
+    }
+
+    protected DynamicIntArray(int[] arr, int len) {
+        this.arr = arr;
+        length = len;
     }
 
     public DynamicIntArray(int capacity) {
@@ -91,5 +97,6 @@ public class DynamicIntArray {
         // Печать заполненной части массива (исключая capacity)
         return Arrays.toString(Arrays.copyOfRange(arr, 0, length));
     }
+
 
 }
