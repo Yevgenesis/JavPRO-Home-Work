@@ -1,9 +1,6 @@
 package de.telran.homeWork.hw_8.arrayListTasks;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class Main {
     /*
@@ -57,7 +54,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Integer> arrayList = new ArrayList<>(Arrays.asList(10, 2, 3, 3, 5, 6, 7, 8));
         LinkedList<Integer> linkedList = new LinkedList<>(Arrays.asList(12, 234, 4, 87, 90));
-        ArrayList<String> arrayStrList = new ArrayList<>(Arrays.asList("one", "two", "three", "four", "five"));
+        ArrayList<String> arrayStrList = new ArrayList<>(Arrays.asList("one", "two", "three", "an", "four", "five"));
         LinkedList<String> linkedStrList = new LinkedList<>(Arrays.asList("hi", "hola", "hello", "Привет"));
 
 
@@ -96,8 +93,8 @@ public class Main {
         myClasses.add(new MyClass("two"));
         myClasses.add(new MyClass("three"));
 
-        for (int i = 0; i < myClasses.size(); i++) {
-            System.out.println(myClasses.get(i));
+        for (MyClass aClass : myClasses) {
+            System.out.println(aClass);
         }
 
 //    Перебрать ArrayList и найти наименьший элемент.
@@ -203,12 +200,55 @@ public class Main {
         myArrayObj.add(new MyClass(322));
         myArrayObj.add(new MyClass(99));
 
-        for (MyClass myClass: myArrayObj ) {
+        for (MyClass myClass : myArrayObj) {
             if (myClass.num % 9 == 0) {
                 System.out.println(myClass);
             }
         }
 
+
+//    Перебрать ArrayList и найти сумму квадратов всех элементов.
+//    (10, 2, 3, 3, 5, 6, 7, 8)
+        sum = 0;
+        for (int el : arrayList) sum += el * el;
+        System.out.println(sum);
+
+//    Перебрать LinkedList и вычислить произведение всех элементов.
+//    (12, 234, 4, 87, 90)
+        int product = 1;
+        for (int el : linkedList) {
+            product *= el;
+        }
+        System.out.println(product);
+
+//    Перебрать ArrayList и найти самую короткую строку.
+//    ("one", "two", "three", "an", "four", "five")
+        String minString = arrayStrList.get(0);
+
+        for (String word : arrayStrList) {
+            if (word.length() < minString.length()) minString = word;
+        }
+        System.out.println(minString);
+
+
+//    Перебрать LinkedList и заменить все гласные буквы в каждой строке на символ '*'.
+//    ("hi", "hola", "hello", "Привет")
+        String[] vowel = {"a","e","i","o","u"};
+        for (int i = 0; i<linkedStrList.size();i++){
+            for (String sym : vowel) {
+                linkedStrList.set(i, linkedStrList.get(i).replaceAll(sym, "*"));
+            }
+        }
+        System.out.println(linkedStrList);
+
+
+//    Создать LinkedList с объектами вашего собственного класса и отсортировать их в порядке убывания.
+
+        LinkedList<Integer> myLinkList = new LinkedList<>(List.of(25, 35, 18, 11, 322, 99));
+        Collections.sort(myLinkList);
+        Collections.reverse(myLinkList);
+
     }
+
 }
 
