@@ -19,7 +19,7 @@ public class BankApp {
     условия работы обслуживания клиентов на протяжении рабочего дня. */
 
 
-    public static final int YEAR = 2023;
+    public static final int YEAR = 2023; // Думаю, что это плохой вариант получения текущего года, но пока так
 
     public static void main(String[] args) {
         SortedSet<Ticket> queueTicket = new TreeSet<>(new TicketComparator());
@@ -28,14 +28,14 @@ public class BankApp {
         Ticket n2 = new Ticket("Petrov V.V.", 1985, Services.INVESTING_FUNDS);
         Ticket n3 = new Ticket("Sidorov M.G.", 1995, Services.OPENING_DEPOSIT);
         Ticket n4 = new Ticket("Mahmudov G.G.", 1958, Services.UTILITY_PAYMENTS);
-        Ticket n5 = new Ticket("Lee B.B.", 1990, Services.OPENING_DEPOSIT);
+        Ticket n5 = new Ticket("Lee B.B.", 1990, Services.RECEIVING_FUNDS);
 
         queueTicket.addAll(Arrays.asList(n1, n2, n3, n4, n5));
 
         printQueue(queueTicket);
 
-        // Если наступает время обслуживания клиентов для вложения средств или открытие депозита.
-        // Пересчитываем порядок очереди, с включённой сортировкой для компаратора, по приоритетным услугам
+        // Если наступает время обслуживания приоритетных услуг (вложения средств, открытие депозита).
+        // Включаем сортировку для компаратора, по приоритетным услугам. Пересчитываем порядок очереди
         queueTicket = recalculateQueue(queueTicket, new TicketComparator(true));
 
         printQueue(queueTicket);
@@ -70,20 +70,18 @@ class TicketComparator implements Comparator<Ticket> {
 
     @Override
     public int compare(Ticket t1, Ticket t2) {
-        int t1_years = BankApp.YEAR - t1.getBirthYear();
-        int t2_years = BankApp.YEAR - t2.getBirthYear();
 
-// ПРОВЕРКА ВОЗРАСТА
-// Если у обоих клиентов пенсионный возраст, то проверка переходит на проверку услуг
-        if (!(t1_years >= 65 && t2_years >= 65))
-            if (t1_years >= 65)
+        // ПРОВЕРКА ВОЗРАСТА
+        // Если у обоих клиентов пенсионный возраст, то проверка переходит на проверку услуг
+        if (!(howOld(t1) >= 65 && howOld(t2) >= 65))
+            if (howOld(t1) >= 65)
                 return -1;
-            else if (t2_years >= 65)
+            else if (howOld(t2) >= 65)
                 return 1;
 
-// ПРОВЕРКА УСЛУГ ПО ВРЕМЕНИ
+        // ПРОВЕРКА УСЛУГ ПО ВРЕМЕНИ
         if (isServiceTime) {
-// Если у обоих приоритетные услуги, то проверка переходит на проверку номеров тикета
+            // Если у обоих клиентов приоритетные услуги, то проверка переходит на проверку номеров тикета
             if (!(isPriorityService(t1) && isPriorityService(t2))) {
                 if (isPriorityService(t1))
                     return -1;
@@ -92,16 +90,16 @@ class TicketComparator implements Comparator<Ticket> {
             }
         }
 
-// ПРОВЕРКА НОМЕРОВ БИЛЕТА
-        if (t1.getTicketNum() > t2.getTicketNum())
-            return 1;
-        else if (t1.getTicketNum() < t2.getTicketNum())
-            return -1;
-        return 0;
+        // ПРОВЕРКА НОМЕРОВ ТИКЕТА
+        return Integer.compare(t1.getTicketNum(), t2.getTicketNum());
     }
 
     private boolean isPriorityService(Ticket ticket) {
         return ticket.getService() == Services.OPENING_DEPOSIT || ticket.getService() == Services.INVESTING_FUNDS;
+    }
+
+    private int howOld(Ticket ticket) {
+        return BankApp.YEAR - ticket.getBirthYear();
     }
 
 }

@@ -9,6 +9,7 @@ import lombok.Setter;
 public class Ticket {
     private static int id;
 
+    // Номер генерируется автоматом, при создании нового тикета
     private int ticketNum;
     private String fuelName;
     private int BirthYear;
