@@ -24,8 +24,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" +
-                "ticketNum=" + ticketNum +
+        return "ticketNum=" + ticketNum +
                 ", fuelName='" + fuelName + '\'' +
                 ", BirthYear=" + BirthYear +
                 ", YearOld=" + (2023 - BirthYear) +
