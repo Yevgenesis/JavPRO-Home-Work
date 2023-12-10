@@ -35,7 +35,7 @@ public class BankApp {
         printQueue(queueTicket);
 
         // Если наступает время обслуживания приоритетных услуг (вложения средств, открытие депозита).
-        // Включаем сортировку для компаратора, по приоритетным услугам. Пересчитываем порядок очереди
+        // Включаем в компараторе сортировку по приоритетным услугам. Пересчитываем порядок очереди
         queueTicket = recalculateQueue(queueTicket, new TicketComparator(true));
 
         printQueue(queueTicket);
