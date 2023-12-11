@@ -39,7 +39,7 @@ public class BankApp {
         // Включаем в компараторе сортировку по возрасту клиентов. Пересчитываем порядок очереди
         queueTicket = recalculateQueue(queueTicket, new TicketComparator(true));
 
-        // вывод очереди сортированной с учётом пенсионеров по умолчанию
+        // вывод очереди сортированной с учётом пенсионеров
         printQueue(queueTicket);
 
     }
