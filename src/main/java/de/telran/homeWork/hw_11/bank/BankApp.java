@@ -32,12 +32,14 @@ public class BankApp {
 
         queueTicket.addAll(Arrays.asList(n1, n2, n3, n4, n5));
 
+        // вывод очереди сортированной по умолчанию
         printQueue(queueTicket);
 
         // Если наступает время обслуживания пенсионеров.
         // Включаем в компараторе сортировку по возрасту клиентов. Пересчитываем порядок очереди
         queueTicket = recalculateQueue(queueTicket, new TicketComparator(true));
 
+        // вывод очереди сортированной с учётом пенсионеров по умолчанию
         printQueue(queueTicket);
 
     }
