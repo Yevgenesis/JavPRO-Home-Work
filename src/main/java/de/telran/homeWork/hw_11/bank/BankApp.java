@@ -34,8 +34,8 @@ public class BankApp {
 
         printQueue(queueTicket);
 
-        // Если наступает время обслуживания приоритетных услуг (вложения средств, открытие депозита).
-        // Включаем в компараторе сортировку по приоритетным услугам. Пересчитываем порядок очереди
+        // Если наступает время обслуживания пенсионеров.
+        // Включаем в компараторе сортировку по возрасту клиентов. Пересчитываем порядок очереди
         queueTicket = recalculateQueue(queueTicket, new TicketComparator(true));
 
         printQueue(queueTicket);
@@ -59,10 +59,10 @@ public class BankApp {
 }
 
 class TicketComparator implements Comparator<Ticket> {
-    private boolean isServiceTime;
+    private boolean isPensionerTime;
 
-    public TicketComparator(boolean isServiceTime) {
-        this.isServiceTime = isServiceTime;
+    public TicketComparator(boolean isPensionerTime) {
+        this.isPensionerTime = isPensionerTime;
     }
 
     public TicketComparator() {
@@ -71,24 +71,25 @@ class TicketComparator implements Comparator<Ticket> {
     @Override
     public int compare(Ticket t1, Ticket t2) {
 
-        // ПРОВЕРКА ВОЗРАСТА
-        // Если у обоих клиентов пенсионный возраст, то проверка переходит на проверку услуг
-        if (!(howOld(t1) >= 65 && howOld(t2) >= 65))
-            if (howOld(t1) >= 65)
-                return -1;
-            else if (howOld(t2) >= 65)
-                return 1;
-
-        // ПРОВЕРКА УСЛУГ ПО ВРЕМЕНИ
-        if (isServiceTime) {
-            // Если у обоих клиентов приоритетные услуги, то проверка переходит на проверку номеров тикета
-            if (!(isPriorityService(t1) && isPriorityService(t2))) {
-                if (isPriorityService(t1))
+        // ПРОВЕРКА ВОЗРАСТА ПО ВРЕМЕНИ
+        if (isPensionerTime) {
+            // Если у обоих клиентов пенсионный возраст, то проверка переходит на проверку услуг
+            if (!(howOld(t1) >= 65 && howOld(t2) >= 65))
+                if (howOld(t1) >= 65)
                     return -1;
-                else if (isPriorityService(t2))
+                else if (howOld(t2) >= 65)
                     return 1;
-            }
         }
+
+        // ПРОВЕРКА УСЛУГ
+        // Если у обоих клиентов приоритетные услуги, то проверка переходит на проверку номеров тикета
+        if (!(isPriorityService(t1) && isPriorityService(t2))) {
+            if (isPriorityService(t1))
+                return -1;
+            else if (isPriorityService(t2))
+                return 1;
+        }
+
 
         // ПРОВЕРКА НОМЕРОВ ТИКЕТА
         return Integer.compare(t1.getTicketNum(), t2.getTicketNum());
