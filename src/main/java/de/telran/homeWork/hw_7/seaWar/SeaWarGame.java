@@ -1,20 +1,51 @@
 package de.telran.homeWork.hw_7.seaWar;
 
-import de.telran.homeWork.hw_7.seaWar.entity.Board;
 import de.telran.homeWork.hw_7.seaWar.entity.Game;
-import de.telran.homeWork.hw_7.seaWar.entity.User;
 import de.telran.homeWork.hw_7.seaWar.entity.UserHuman;
 
 public class SeaWarGame {
+    /*
+    Морской бой.
+Консольное приложение.
+Одновременно в игре могут участвовать только два человека.
+Игроки вводят имена.
+У каждого игрока есть своё поле - квадрат 10х10 клеток
+По очереди расставляют свои корабли.
+4 однопалубных корабля,
+3 двухпалубных,
+2 трехпалубных,
+1 четырёхпалубный.
+Корабли можно располагать только по горизонтали или по вертикали.
+Между кораблями должна быть минимум одна клетка
+Игроки не видят расположение кораблей друг друга.
+Начинается игра. Первый игрок делает выстрел, сообщая нашему приложению координаты предполагаемой цели - номер клетки по горизонтали и номер клетки по вертикали.
+Если выстрел первого игрока оказался удачным, и он поразил цель, то возможно два варианта развития событий.
+Первый вариант: в указанной игроком клетки находится корабль, то, если корабль однопалубный, игрок "убил" корабль, если не однопалубный, то ранил. Следующий ход за первым игроком.
+Второй вариант: игрок не попал ни в какой корабль, ход переходит второму игроку.
+Таким образом, возвращаемся в пункт 8, передавая ход друг другу, игроки пытаются как можно раньше уничтожить корабли друг друга. Тот, кто первым, уничтожит все корабли - победитель. Печатаем поздравление и выход из игры.
+
+ */
     public static void main(String[] args) {
-        UserHuman user1 = new UserHuman("Vano");
-        UserHuman user2 = new UserHuman("Liza");
-        Game game = new Game(user1,user2);
 
 
+        UserHuman user1 = new UserHuman("Vano", new int[]{1, 1, 1, 1, 2, 2, 2, 3, 3, 4});
+        UserHuman user2 = new UserHuman("Liza", new int[]{1, 1, 1, 1, 2, 2, 2, 3, 3, 4});
+
+        // Добавление юзеров в игру
+        Game game = new Game(user1, user2);
+
+
+        game.autoSetCurrentUserShips();
+        game.changeCurrentUser();
+        game.autoSetCurrentUserShips();
+        game.changeCurrentUser();
 
         game.showBoards(true);
-//        game.setShips(user1);
+        game.changeCurrentUser();
+        game.showBoards(true);
+
+
+
 
 //        isSettingShip = userBoard.setShip(2,4,4,false);
 //        userBoard.showBoard(true);
