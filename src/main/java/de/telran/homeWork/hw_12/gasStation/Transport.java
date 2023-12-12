@@ -1,6 +1,7 @@
 package de.telran.homeWork.hw_12.gasStation;
 
 
+import de.telran.homeWork.hw_12.gasStation.enums.Auto;
 import lombok.Getter;
 
 import java.util.Objects;

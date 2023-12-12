@@ -1,5 +1,8 @@
 package de.telran.homeWork.hw_12.gasStation;
 
+import de.telran.homeWork.hw_12.gasStation.enums.Auto;
+import de.telran.homeWork.hw_12.gasStation.enums.Times;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 

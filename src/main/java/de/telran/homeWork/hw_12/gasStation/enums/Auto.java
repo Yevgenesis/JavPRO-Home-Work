@@ -1,4 +1,4 @@
-package de.telran.homeWork.hw_12.gasStation;
+package de.telran.homeWork.hw_12.gasStation.enums;
 
 public enum Auto {
     AMBULANCE,
