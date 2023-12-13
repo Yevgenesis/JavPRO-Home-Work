@@ -1,7 +1,5 @@
-package de.telran.practic;
+package de.telran.practic.backLog;
 
-
-import java.util.Arrays;
 
 public class Ananas extends Fruit {
 String country;

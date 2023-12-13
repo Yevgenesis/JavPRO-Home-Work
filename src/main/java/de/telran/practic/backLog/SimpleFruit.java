@@ -1,4 +1,4 @@
-package de.telran.practic;
+package de.telran.practic.backLog;
 
 public class SimpleFruit {
     public static void main(String[] args) {

@@ -24,10 +24,10 @@ Tokyo->Seoul, Seoul->Mumbai, Mumbai->Berlin, Berlin->Lindon*/
 
         String origin = "Seoul";
         String destination = "London";
-        System.out.println(routeMyFinder(routes, origin, destination));
+        System.out.println(myRouteFinder(routes, origin, destination));
     }
 
-    public static String routeMyFinder(Map<String, String> routes, String origin, String destination) {
+    public static String myRouteFinder(Map<String, String> routes, String origin, String destination) {
         StringBuilder myRoute = new StringBuilder();
         if (origin.equals(destination)) {
             // Если одинаковый пункт назначения и оправки
