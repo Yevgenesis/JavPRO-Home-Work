@@ -21,6 +21,7 @@ Tokyo->Seoul, Seoul->Mumbai, Mumbai->Berlin, Berlin->Lindon*/
         routes.put("Tokyo", "Seoul");
         routes.put("Mumbai", "Berlin");
         routes.put("Seoul", "Mumbai");
+        routes.put("London", "Berlin");
 
         String origin = "Seoul";
         String destination = "London";

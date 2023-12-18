@@ -1,6 +1,6 @@
 package de.telran.homeWork.hw_13.findDuplicate;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class FindDuplicateApp {
@@ -16,7 +16,7 @@ public class FindDuplicateApp {
     }
 
     private static String findDuplicateByCount(String[] arr, int k) {
-        Map<String, Integer> mapDuplicates = new HashMap<>();
+        Map<String, Integer> mapDuplicates = new LinkedHashMap<>();
         for (String symbol : arr) {
             int count = 1;
             if (mapDuplicates.containsKey(symbol)) {

@@ -12,6 +12,7 @@ public class CheckArrayApp {
         int[] arr1 = {1, 2, 4, 3, 5, 4, 6};
         int[] arr2 = {2, 1, 4, 3, 5, 6, 4};
 
+
         System.out.println("Массивы равны: " + checkEqualsMaps(countElementArrayToMap(arr1), countElementArrayToMap(arr2)));
     }
 
