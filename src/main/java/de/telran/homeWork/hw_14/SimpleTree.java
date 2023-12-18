@@ -19,7 +19,7 @@ public class SimpleTree {
         System.out.println(res1);
 
         // ищем Node4, алгоритм Depth first search
-        Node res2 = Util.depthInorderStack(root, 4);
+        Node res2 = Util.depthFirstSearch(root, 4);
         System.out.println(res2);
     }
 

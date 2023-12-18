@@ -12,7 +12,7 @@ import java.util.Stack;
 class Util {
 
 
-    public static Node depthInorderStack(Node node, int key) {
+    public static Node depthFirstSearch(Node node, int key) {
         if (node == null)
             return null;
 
