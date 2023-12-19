@@ -2,21 +2,16 @@ package de.telran.practic.backLog;
 
 public class Main {
     public static void main(String[] args) {
-        int ind = 5;
-        getFibNumber(ind);
-//        System.out.println(getFibNumber(ind));
-    }
 
-    public static int getFibNumber(int ind) {
-        int fibA = -1;
-        int fibB = 1;
-        int res = 0;
-        for (int i = 0; i <= ind; i++) {
-            res = fibA + fibB;
-            fibA = fibB;
-            fibB = res;
-            System.out.println(res);
+        int n = -5;
+        int sum = 0;
+        for (int i = 1; i != n; i++) {
+            sum += i;
         }
-        return res;
+        System.out.println(sum);
+
     }
+//    public static int progressin(int n){
+//        if(n<=0) throw new Error()
+//    }
 }
