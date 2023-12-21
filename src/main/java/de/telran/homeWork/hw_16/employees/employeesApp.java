@@ -35,8 +35,6 @@ public class employeesApp {
         office.add(new Employee("Сергей", "Александрович", "Есенин", 950, "бухгалтер", "финансы"));
         office.add(new Employee("Иван", "Сергеевич", "Тургенев", 750, "бухгалтер", "финансы"));
 
-//        System.out.println(office);
-
 
 //  1-Вычислить среднюю зарплату всех сотрудников
         double avgSalary = office.stream()
