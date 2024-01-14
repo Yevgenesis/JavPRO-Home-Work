@@ -12,14 +12,12 @@ public class Main {
     Показать примеры их использования.
 */
     public static void main(String[] args) {
-        UtilsOperation<Integer, Double> calc1 = new UtilsOperation<>();
-        System.out.println(calc1.add(3, 2));
-        System.out.println(calc1.sub(3, 2));
-        System.out.println(calc1.div(3, 2));
-        System.out.println(calc1.mult(3, 2));
-        System.out.println(calc1.sqr(3));
-
-
+        UtilsOperation calc1 = new UtilsOperation();
+        System.out.println(calc1.add(3L, 2));   //добавление
+        System.out.println(calc1.sub(3F, 2));   //вычитание
+        System.out.println(calc1.div(30, 0));   //деление
+        System.out.println(calc1.mult(3.3, 2)); //умножение
+        System.out.println(calc1.sqr(3));  //получение квадрата
     }
 }
 

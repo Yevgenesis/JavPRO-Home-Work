@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Main {
+public class Streams {
     public static void main(String[] args) {
 
 //  Задача 1: Собрать элементы потока в список.
