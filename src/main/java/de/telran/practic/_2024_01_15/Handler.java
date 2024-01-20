@@ -10,8 +10,11 @@ public class Handler {
 
     public void parseString(String str) {
         Product product = new Product();
-        String regEx = "\\(\\w+\\)(\\w+)#(\\d{1,})]\\[([\\w+]+[\\s\\w+]*)#\\d{1,}]\\[([\\w+]+[[-\\s]\\w+]*)#\\d{1,}]\\[(\\d{1,})#\\d{1,}]\\[(\\w+)#\\d{1,}]\\[(\\w+)#\\d{1,}]\\[([0-9]+.?[0-9]+)?#\\d{1,}]\\[([0-9]+.?[0-9]+)?#\\d{1,}]\\[(\\w+)#\\d{0,}]\\z";
+        String regEx = "\\(\\w+\\)(\\w+)#(\\d{1,})]\\[([\\w+]+[\\s\\w+]*)#\\d{1,}]\\[([\\w+]+[[-'\\s]\\w+]*)#\\d{1,}]\\[(\\d{1,})#\\d{1,}]\\[(\\w+)#\\d{1,}]\\[(\\w+)#\\d{1,}]\\[([0-9]+.?[0-9]+)?#\\d{1,}]\\[([0-9]+.?[0-9]+)?#\\d{1,}]\\[(\\w+)#\\d{0,}]\\z";
 
+//        str = "[(CATEGORY)FOOD#10][Honey#10][Nature's Way#10][250#10][true#10][false#10][5.99#10][25.0#10][false#10]";
+//        str = "[(CATEGORY)FOOD#11][Rice#11][Uncle Ben's#11][200#11][true#11][false#11][2.29#11][20.0#11][false#11]";
+//        str = "[(CATEGORY)DRINKS#5][Iced Tea#5][Lipton#5][400#5][true#5][false#5][1.79#5][18.0#5][false#5]";
         Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(str);
 
@@ -35,6 +38,5 @@ public class Handler {
             System.out.println(each);
         }
     }
-
-
 }
+

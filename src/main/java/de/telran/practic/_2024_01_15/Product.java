@@ -46,3 +46,46 @@ public class Product {
                 '}';
     }
 }
+
+enum Category {
+    FOOD,
+    DRINKS,
+    SNACKS;
+
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+}
+
+enum Factor {
+    BARILLA,
+    COCA_COLA,
+    LAYS,
+    NESTLE,
+    LIPTON,
+    PLANTERS,
+    DE_CECCO,
+    TROPICANA,
+    DORITOS,
+    NATURES_WAY,
+    PEPSI,
+    NATURE_VALLEY,
+    WONDER,
+    STARBUCKS,
+    RITZ,
+    UNCLE_BENS,
+    AQUAFINAL,
+    ORVILLE_REDENBACHERS,
+    DAYRYLAND,
+    PRINGLES,
+    KELLOGGS,
+    OREO,
+    KRAFT,
+    CHOBANI,
+    RED_BULL,
+    SNYDERS_OF_HANOVER
+
+
+}

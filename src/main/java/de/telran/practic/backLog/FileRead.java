@@ -3,7 +3,7 @@ package de.telran.practic.backLog;
 import java.io.*;
 
 
-public class Test {
+public class FileRead {
     /*
     Написать программу на Java, которая читает текст из
     .txt файла, преобразует каждую букву в верхний регистр и
