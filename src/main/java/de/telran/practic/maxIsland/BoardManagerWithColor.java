@@ -2,14 +2,14 @@ package de.telran.practic.maxIsland;
 
 import java.util.Random;
 
-public class BoardManager2 {
+public class BoardManagerWithColor {
     private int numIsland;
     private int maxIsland;
     private int currentIslandCapacity;
     private final int[][] board;
 
 
-    public BoardManager2(int row, int col) {
+    public BoardManagerWithColor(int row, int col) {
         this.board = new int[row][col];
         generateBoard(row, col);
         this.maxIsland = 0;
