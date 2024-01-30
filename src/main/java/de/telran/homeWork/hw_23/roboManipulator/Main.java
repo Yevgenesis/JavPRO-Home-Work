@@ -20,14 +20,22 @@ public class Main {
         tr1.start();
         tr2.start();
 
-        System.out.println("Программа закончена");
+        try {
+            tr1.join();
+            tr2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        System.out.println("Конец рабочего дня!");
     }
 }
 
 
 class Detail {
     private static int id;
-    private int num;
+    private final int num;
 
     public Detail() {
         this.num = ++id;
@@ -41,7 +49,7 @@ class Detail {
 
 class RobotSetter implements Runnable {
 
-    private volatile List<Detail> table;
+    private final List<Detail> table;
     private int detailQuantity;
 
     public RobotSetter(List<Detail> table, int detailQuantity) {
@@ -56,7 +64,7 @@ class RobotSetter implements Runnable {
                 synchronized (table) {
                     Detail currentDetail = new Detail();
                     table.add(currentDetail);
-                    System.out.println("Робот положил деталь №" + currentDetail.getNum());
+                    System.out.println("Робот Сеттер положил деталь №" + currentDetail.getNum());
                     this.detailQuantity--;
                 }
             }
@@ -66,7 +74,7 @@ class RobotSetter implements Runnable {
 
 
 class RobotGetter implements Runnable {
-    private volatile List<Detail> table;
+    private final List<Detail> table;
     private int detailQuantity;
 
     public RobotGetter(List<Detail> table, int detailQuantity) {
@@ -81,7 +89,7 @@ class RobotGetter implements Runnable {
                 synchronized (table) {
                     Detail currentDetail = table.getLast();
                     table.removeFirst();
-                    System.out.println("Робот взял деталь №" + currentDetail.getNum());
+                    System.out.println("Робот Геттер взял деталь №" + currentDetail.getNum());
                     this.detailQuantity--;
                 }
             }
