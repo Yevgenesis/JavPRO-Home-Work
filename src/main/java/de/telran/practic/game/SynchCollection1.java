@@ -8,8 +8,8 @@ import java.util.Random;
 import java.util.concurrent.Exchanger;
 
 /**
- * - класс который содержит метод для генерации 10 экшонов лист
- * - необходимо что бы сыграли 10 игроков каждый с каждым короме самого себя естественно
+ * V - класс, который содержит метод для генерации 10 экшонов лист
+ * - необходимо, что бы сыграли 10 игроков каждый с каждым короме самого себя естественно
  * - победа 1 бал, ничья 0,5, проигрыш 0
  * - после всех игр записать в какую нить структуру данных у кого сколько баллов
  * - найти первые 3 лидирующих балла
@@ -21,12 +21,20 @@ public class SynchCollection1 {
 
     public static void main(String[] args) {
 
+        int playersQuantity = 4;
+        int turns = 10;
+
         Exchanger<Action> exchanger = new Exchanger<>();
+        Randomize rndActions = new Randomize(turns);
 
-        Randomize rndActions = new Randomize(10);
+        Player[] players = new Player[playersQuantity];
 
-        new Player(FAKER.name().firstName(), rndActions.getActionsArray(), exchanger);
-        new Player(FAKER.name().firstName(), rndActions.getActionsArray(), exchanger);
+
+        for (int i = 0; i < playersQuantity; i++) {
+
+            players[i] = new Player(FAKER.name().firstName(), rndActions.getActionsArray(), exchanger);
+        }
+
     }
 }
 
@@ -40,19 +48,20 @@ class Player extends Thread {
     private final String name;
     private final List<Action> actions;
     private final Exchanger<Action> exchanger;
+    private double score;
 
     public Player(String name, List<Action> actions, Exchanger<Action> exchanger) {
         this.name = name;
         this.actions = actions;
         this.exchanger = exchanger;
-        this.start();
+        // this.start();
     }
 
     public void getWinner(Action actionP1, Action actionP2) {
         if (actionP1 == Action.STONE && actionP2 == Action.SCISSORS ||
                 actionP1 == Action.PAPER && actionP2 == Action.STONE ||
                 actionP1 == Action.SCISSORS && actionP2 == Action.PAPER) {
-            System.out.println("WINNER: " + name);
+            System.out.println("Победитель: " + name);
         }
     }
 
@@ -63,7 +72,7 @@ class Player extends Thread {
             try {
                 reply = exchanger.exchange(ac);
                 getWinner(ac, reply);
-                sleep(1500);
+                sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

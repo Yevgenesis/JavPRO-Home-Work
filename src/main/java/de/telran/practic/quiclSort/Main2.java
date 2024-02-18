@@ -1,41 +1,36 @@
 package de.telran.practic.quiclSort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main2 {
     public static void main(String[] args) {
-        List<Integer> arr = Arrays.asList(2, 9, 1, 10, 4, 11, 0, 7);
-        quickSort(arr,0,arr.size());
-        System.out.println(arr);
-
+        int[] array = {6, 7, 1, 2, 9, 8, 3, 0, 10, 5};
+        quickSort(array, 0, array.length - 1);
+        System.out.println(Arrays.toString(array));
     }
 
-    private static void quickSort(List<Integer> arr,int start, int end) {
-        if (start >= end) return;
-
-        int pivot = arr.get(end-1);
-        int opora=start;
-
-        for (int i=start;i<end;i++){
-            if (pivot<arr.get(i)) {
-                switchEl(arr, opora, i);
-                opora++;
+    public static int arrange(int[] arr, int start, int end) {
+        int pivot = arr[end];
+        int index = start;
+        for (int i = start; i < end; i++) {
+            if (arr[i] < pivot) {
+                int temp = arr[index];
+                arr[index] = arr[i];
+                arr[i] = temp;
+                index++;
             }
         }
-        switchEl(arr,pivot,opora);
-        opora++;
-//        quickSort(arr,opora,end);
+        int temp = arr[index];
+        arr[index] = arr[end];
+        arr[end] = temp;
 
-
-
+        return index;
     }
 
-    private static void switchEl(List<Integer> arr, int opora, int ind) {
-        int temp = arr.get(opora);
-        arr.set(opora,arr.get(ind));
-        arr.set(ind,temp);
+    public static void quickSort(int[] arr, int start, int end) {
+        if (end <= start) return;
+        int index = arrange(arr, start, end);
+        quickSort(arr, start, index - 1);
+        quickSort(arr, index + 1, end);
     }
-
 }
