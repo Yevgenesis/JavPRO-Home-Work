@@ -1,5 +1,10 @@
 package de.telran.practic.library;
 
+import de.telran.practic.library.entity.Book;
+import de.telran.practic.library.entity.Genre;
+import de.telran.practic.library.entity.Library;
+import de.telran.practic.library.entity.User;
+
 public class Main {
     /*
 Задание:
@@ -26,8 +31,9 @@ P.S. Если не получится создать проект, в гит и 
 
         library.giveBookToUser(user1, book1);
         library.acceptBookFromUser(user1, book1);
+
         System.out.println();
         System.out.println("Записи логов:");
-        System.out.println(library.logger);
+        System.out.println(library.getLogger());
     }
 }

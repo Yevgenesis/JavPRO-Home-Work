@@ -1,6 +1,4 @@
-package de.telran.practic.library;
-
-import lombok.Getter;
+package de.telran.practic.library.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,19 +6,21 @@ import java.util.Map;
 
 public class Library {
     private final ArrayList<Book> books;
-    Map<Integer, User> users;
-    @Getter
-    StringBuilder logger = new StringBuilder();
+    private final Map<Integer, User> users;
+    private final StringBuilder logger = new StringBuilder();
 
     public Library() {
         books = new ArrayList<>();
         users = new HashMap<>();
     }
 
+    public String getLogger() {
+        return logger.toString();
+    }
 
     public void addBook(Book book) {
         books.add(book);
-        System.out.println(" Книга \"" + book.getTitle() + "\" добавлена в библиотеку ");
+        System.out.println("Книга \"" + book.getTitle() + "\" добавлена в библиотеку ");
     }
 
     public void removeBook(Book book) {
@@ -83,7 +83,7 @@ public class Library {
             books.remove(book);
             book.setAvailable(true);
 
-            System.out.println(user.getName() + " Вернул книгу " + book);
+            System.out.printf("%s вернул книгу: \"%s, %d, жанр: %S\"\n", user.getName(), book.getTitle(), book.getYear(), book.getGenre());
             logger.append("return book:").append("user_id:").append(user.getId()).append(", book: ").append(book).append("\n");
 
         } else {

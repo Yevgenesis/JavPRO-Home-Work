@@ -1,4 +1,4 @@
-package de.telran.practic.library;
+package de.telran.practic.library.entity;
 
 import lombok.Getter;
 
