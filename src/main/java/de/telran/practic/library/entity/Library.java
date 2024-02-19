@@ -26,7 +26,7 @@ public class Library {
     public void removeBook(Book book) {
         if (books.contains(book)) {
             books.remove(book);
-            System.out.println("Кинага \"" + book.getTitle() + "\" удалена ");
+            System.out.println("Книга \"" + book.getTitle() + "\" удалена ");
         } else {
             System.out.println("Книги нет у нас !!!");
         }
