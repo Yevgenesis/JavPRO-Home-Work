@@ -24,6 +24,8 @@ P.S. Если не получится создать проект, в гит и 
         library.addBook(new Book("Принцесса марса", "Эдгар Берроуз", 1912, Genre.FANTASY, true));
         library.addBook(new Book("Боги марса", "Эдгар Берроуз", 1913, Genre.FANTASY, true));
         library.addBook(new Book("Владыка марса", "Эдгар Берроуз", 1913, Genre.FANTASY, true));
+        System.out.println();
+
 
         User user1 = new User("Миша", "Михайлов", 20);
         library.registerUser(user1);
