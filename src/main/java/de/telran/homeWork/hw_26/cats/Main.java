@@ -56,9 +56,7 @@ public class Main {
         System.out.println("Всего " + cat3.getName() + " съел " + cat3.getFeedSum() + " грамм");
         System.out.println(cat3.getName() + " весит: " + cat3.getWeight() + " кг");
 
-
-
-
+        
 /*
 Урок 3. Статические методы и переменные.
 Создать у класса Cat статическую переменную count, которая будет увеличиваться,
