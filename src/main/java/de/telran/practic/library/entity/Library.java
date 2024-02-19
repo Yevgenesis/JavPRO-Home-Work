@@ -7,6 +7,8 @@ import java.util.Map;
 public class Library {
     private final ArrayList<Book> books;
     private final Map<Integer, User> users;
+
+    // Журнал ЛОГОВ
     private final StringBuilder logger = new StringBuilder();
 
     public Library() {
@@ -46,7 +48,7 @@ public class Library {
             System.out.println("Нет такого пользователя с id:" + user.getId());
         }
         users.remove(user.getId());
-        System.out.println("Пользователя с id:" + user.getId() + " удалён!");
+        System.out.println("Пользователь с id:" + user.getId() + " удалён!");
     }
 
     public Book findBook(String title) {
@@ -56,7 +58,7 @@ public class Library {
                 return book;
             }
         }
-        System.out.println("Книги \"" + title + "\" нет в нашей библиотеки");
+        System.out.println("Книги \"" + title + "\" нет в нашей библиотеке");
         return null;
     }
 
@@ -87,7 +89,7 @@ public class Library {
             logger.append("return book:").append("user_id:").append(user.getId()).append(", book: ").append(book).append("\n");
 
         } else {
-            System.out.println(user.getName() + "не брал эту книгу: " + book);
+            System.out.println(user.getName() + " не брал эту книгу: " + book);
         }
     }
 }
