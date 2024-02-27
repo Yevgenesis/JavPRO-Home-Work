@@ -74,11 +74,10 @@ public class Library {
         }
         user.borrowBook(book);
         book.setAvailable(false);
-
         logger.append("get book:").append("user_id:").append(user.getId()).append(", book: ").append(book).append("\n");
-
         System.out.printf("%s взял почитать книгу: \"%s, %d, жанр: %S\"\n", user.getName(), book.getTitle(), book.getYear(), book.getGenre());
     }
+
 
     public void acceptBookFromUser(User user, Book book) {
         if (user.returnBook(book)) {
